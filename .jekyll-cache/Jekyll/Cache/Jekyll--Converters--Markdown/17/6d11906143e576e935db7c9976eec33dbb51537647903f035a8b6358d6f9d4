@@ -1,3 +1,5 @@
+I"”<p>Without further ado, the generator:
+(Scroll down for further instructions and templates.)</p>
 <head>
     <style>
         #Dragon, #Template, #Output, #Price { border: 1px solid #525252; background-color: #ececec; width: 95%; padding: 4px; margin: 2px; }
@@ -5,17 +7,17 @@
       </style>
 </head>
 
-<table id=Tb>
+<table id="Tb">
 <tr>
-<td id=Tb>
-    <b>Input:</b><br>
+<td id="Tb">
+    <b>Input:</b><br />
     <a href="">How to get your source code.</a>
-    <textarea rows="6" id="Dragon" placeholder="Source"></textarea><br>
-    <input type="number" placeholder="Price" id="Price">
+    <textarea rows="6" id="Dragon" placeholder="Source"></textarea><br />
+    <input type="number" placeholder="Price" id="Price" />
 </td>
-<td id=Tb>
-    <b>Template:</b><br>
-    Get one from the <a href="">library</a> -or-  <a href=""></a>write your own</a>.
+<td id="Tb">
+    <b>Template:</b><br />
+    Get one from the <a href="">library</a> -or-  <a href=""></a>write your own&lt;/a&gt;.
     <textarea rows="8" id="Template" placeholder="Template"></textarea>
 </td>
 </tr>
@@ -24,8 +26,8 @@
 <div align="right">
 <button type="button" id="Generate">Generate</button>
 </div>
-<br>
-<b>Result:</b>
+<p><br />
+<b>Result:</b></p>
 <textarea rows="7" id="Output" placeholder="Output"></textarea>
 
 <script>
@@ -121,3 +123,5 @@ function Generate(){
     document.getElementById('Output').value = template;
 }
 </script>
+
+:ET
