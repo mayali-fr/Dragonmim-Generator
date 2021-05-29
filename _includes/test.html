@@ -1,0 +1,82 @@
+<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+
+<h1> Testing</h1>
+<input type="text" placeholder="Type " id="idOneIn">
+<input type="text" placeholder="Type " id="idTwoIn">
+<button type="button" onclick="getInputValue(this);">Get Value</button>
+
+<p id="idOneOut"></p>
+<p id="idTwoOut"></p>
+
+<p id ="scraping"></p>
+
+<script>
+class Derg{
+  constructor(id, level, name, gender, p1, p2, s1, s2, t1, t2, breed, flight, eyes){
+      this.id = id;
+      this.name = name;
+      this.gender = gender + "ale";
+      this.breed = breed;
+      this.flight = flight;
+      this.eyes = eyes;
+      this.primary_color = p1;
+      this.primary_gene = p2;
+      this.secondary_color = s1;
+      this.secondary_gene = s2;
+      this.tertiary_color = t1;
+      this.tertiary_gene = t2;
+      this.level = level;
+  }
+}
+
+let derg = Derg(id, 1, name, gender, col_one, gen_one, col_two, gen_two, col_three, gen_three, breed, flight, eyes)
+function getInputValue(doc) {
+  let idOne = document.getElementById("idOneIn").value;
+  let idTwo = document.getElementById("idTwoIn").value;
+  document.getElementById("idOneOut").innerHTML = idOne;
+  document.getElementById("idTwoOut").innerHTML = idTwo;
+  
+};
+
+
+dragon_card_template = `[columns]
+[url=https://www1.flightrising.com/dragon/{derg_id}][img]https://www1.flightrising.com/rendern/350/{derg_id_fact}/{derg_id}_350.png[/img][/url]
+
+[nextcol]
+[size=5][b]{name}[/b][/size]
+
+[columns]
+[img]https://www1.flightrising.com/static/layout/lair/icons/{gender}.png[/img]
+[nextcol][size=2]Breed[/size]
+[b]{breed}[/b]
+[/columns]
+
+[b]Eye Type[/b]
+[columns]
+[img]https://www1.flightrising.com/static/icons/{flight_low}_rune.png[/img]
+[nextcol][size=2]{flight}
+[b]{eye_type}[/b][/size]
+[/columns]
+
+[b]Genetics[/b]
+[columns]
+[img]https://www1.flightrising.com/static/icons/primary-gene.png[/img]
+[nextcol][size=2][color = {primary_color_code}][b]@[/b][/color]{primary_color} 
+[b]{primary_gene}[/b][/size] [/columns][columns]
+[img]https://www1.flightrising.com/static/icons/secondary-gene.png[/img]
+[nextcol][size=2][color = {secondary_color_code}][b]@[/b][/color]{secondary_color} 
+[b]{secondary_gene}[/b][/size] [/columns][columns]
+[img]https://www1.flightrising.com/static/icons/tertiary-gene.png[/img]
+[nextcol][size=2][color = {tertiary_color_code}][b]@[/b][/color]{tertiary_color}
+[b]{tertiary_gene}[/b][/size]
+[/columns]
+
+
+[center]
+[img]https://www1.flightrising.com/static/cms/icons/30.png[/img] {price}
+[url=http://www1.flightrising.com/auction-house/buy-dragon/{derg_id}][img]https://flightrising.com/images/layout/button_buyauction.png[/img][/url]
+[/center]
+[/columns]`
+</script>
+
+
