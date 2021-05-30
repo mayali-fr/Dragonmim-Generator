@@ -1,9 +1,78 @@
-I"�<p>Without further ado, the generator:
-(Scroll down for further instructions and templates.)</p>
+I"u)<h2 id="1-choose-a-template">1. Choose a template</h2>
+<p>(Skip if you want to <a href="#custom_template">use your own</a>.)</p>
+<head>
+    <style>
+        #Template1 { border: 1px solid #525252; background-color: #ececec; width: 95%; padding: 4px; margin: 2px; }
+        #TbTemplates {border: none; padding: 0px; margin: auto;}
+      </style>
+</head>
+
+<table id="TbTemplates">
+    <tr>
+    <td style="max-width:300px">
+    <img src="/assets/img/Template1.png" width="100%" />
+    </td>
+    <td>
+        <textarea rows="6" id="Template1" placeholder="Source" readonly="">
+[columns]
+[url=https://www1.flightrising.com/dragon/{derg_id}][img]https://www1.flightrising.com/rendern/350/{derg_id_fact}/{derg_id}_350.png[/img][/url]
+
+[nextcol]
+[size=5][b]{name}[/b][/size]
+
+[columns]
+[img]https://www1.flightrising.com/static/layout/lair/icons/{gender}.png[/img]
+[nextcol][size=2]Breed[/size]
+[b]{breed}[/b]
+[/columns]
+
+[b]Eye Type[/b]
+[columns]
+[img]https://www1.flightrising.com/static/icons/{flight_low}_rune.png[/img]
+[nextcol][size=2]{flight}
+[b]{eye_type}[/b][/size]
+[/columns]
+
+[b]Genetics[/b]
+[columns]
+[img]https://www1.flightrising.com/static/icons/primary-gene.png[/img]
+[nextcol][size=2][color = {primary_color_code}][b]@[/b][/color]{primary_color} 
+[b]{primary_gene}[/b][/size] [/columns][columns]
+[img]https://www1.flightrising.com/static/icons/secondary-gene.png[/img]
+[nextcol][size=2][color = {secondary_color_code}][b]@[/b][/color]{secondary_color} 
+[b]{secondary_gene}[/b][/size] [/columns][columns]
+[img]https://www1.flightrising.com/static/icons/tertiary-gene.png[/img]
+[nextcol][size=2][color = {tertiary_color_code}][b]@[/b][/color]{tertiary_color}
+[b]{tertiary_gene}[/b][/size]
+[/columns]
+
+
+[center]
+[img]https://www1.flightrising.com/static/cms/icons/30.png[/img] {price}
+[url=http://www1.flightrising.com/auction-house/buy-dragon/{derg_id}][img]https://flightrising.com/images/layout/button_buyauction.png[/img][/url]
+[/center]
+[/columns]
+        </textarea>
+        <div align="right">
+            <button type="button" id="Use1">Use This</button>
+        </div>
+    </td>
+    </tr>
+</table>
+
+<script>
+    var btn = document.getElementById("Use1");
+    btn.addEventListener("click", Apply);
+    function Apply(){
+        document.getElementById('Template').value = document.getElementById('Template1').value;
+    }
+</script>
+
+<h2 id="2-generate">2. Generate!</h2>
 <head>
     <style>
         #Dragon, #Template, #Output, #Price { border: 1px solid #525252; background-color: #ececec; width: 95%; padding: 4px; margin: 2px; }
-        #Tb {border: none; padding: 0px; margin: 0px;}
+        #Tb {border: none; padding: 0px; margin: auto;}
       </style>
 </head>
 
@@ -11,14 +80,13 @@
 <tr>
 <td id="Tb">
     <b>Input:</b><br />
-    <a href="">How to get your source code.</a>
+    <a href="#source_code">How to get your source code.</a>
     <textarea rows="6" id="Dragon" placeholder="Source"></textarea><br />
     <input type="number" placeholder="Price" id="Price" />
 </td>
-<td id="Tb">
+<td id="Tb" width="70%">
     <b>Template:</b><br />
-    Get one from the <a href="">library</a> -or-  <a href=""></a>write your own&lt;/a&gt;.
-    <textarea rows="8" id="Template" placeholder="Template"></textarea>
+    <textarea rows="7" id="Template" placeholder="Template"></textarea>
 </td>
 </tr>
 </table>
@@ -124,4 +192,11 @@ function Generate(){
 }
 </script>
 
+<h2 id="how-to-get-a-dragons-source-code">How to get a Dragons source code</h2>
+<p><span id="source_code">Access</span> the page of the dragon, right anywhere, and hit “view page source”. A new window should appear. Make sure to copy the entire text found in that window, as most of the necessary bits are around the middle.</p>
+
+<p><img src="/assets/img/DragonViewPageSource.png" alt="image-title-here" class="img-responsive" /></p>
+
+<h2 id="how-to-use-a-custom-template">How to use a custom template</h2>
+<p><span id="custom_template">Coming</span> soon</p>
 :ET
