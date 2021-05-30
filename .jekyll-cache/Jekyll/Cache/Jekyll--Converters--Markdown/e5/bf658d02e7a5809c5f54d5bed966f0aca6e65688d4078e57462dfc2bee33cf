@@ -1,4 +1,4 @@
-I"u)<h2 id="1-choose-a-template">1. Choose a template</h2>
+I"�+<h2 id="1-choose-a-template">1. Choose a template</h2>
 <p>(Skip if you want to <a href="#custom_template">use your own</a>.)</p>
 <head>
     <style>
@@ -10,7 +10,7 @@
 <table id="TbTemplates">
     <tr>
     <td style="max-width:300px">
-    <img src="/assets/img/Template1.png" width="100%" />
+    <img src="/assets/img/Template2.png" width="100%" />
     </td>
     <td>
         <textarea rows="6" id="Template1" placeholder="Source" readonly="">
@@ -193,10 +193,20 @@ function Generate(){
 </script>
 
 <h2 id="how-to-get-a-dragons-source-code">How to get a Dragons source code</h2>
-<p><span id="source_code">Access</span> the page of the dragon, right anywhere, and hit “view page source”. A new window should appear. Make sure to copy the entire text found in that window, as most of the necessary bits are around the middle.</p>
+<ul>
+  <li><span id="source_code">As</span> good practice, it is recommended to <strong>log-out</strong> of your account to do this. Opening a new icognito window will accomplish the same.</li>
+</ul>
+
+<p>Access the page of the dragon, right click and hit “view page source”. A new window should appear. Make sure to copy the entire text found in that window, as most of the necessary bits are around the middle.</p>
 
 <p><img src="/assets/img/DragonViewPageSource.png" alt="image-title-here" class="img-responsive" /></p>
 
 <h2 id="how-to-use-a-custom-template">How to use a custom template</h2>
 <p><span id="custom_template">Coming</span> soon</p>
+
+<div style="text-align:center;">
+<img src="https://cutekawaiiresources.files.wordpress.com/2014/08/small_divider.png" />
+</div>
+
+<p><span style="font-size:12px;"> This tool does not collect any data from the text provided to create the cards. Generator source code can be found <a href="https://github.com/Dragonmim/Dragonmim.github.io/blob/master/_includes/dragonCardGenerator.html">here</a>.</span></p>
 :ET

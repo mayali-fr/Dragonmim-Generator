@@ -12,9 +12,18 @@ categories: FR
 {% include dragonCardGenerator.html %}
 
 ## How to get a Dragons source code
-<span id="source_code">Access</span> the page of the dragon, right anywhere, and hit "view page source". A new window should appear. Make sure to copy the entire text found in that window, as most of the necessary bits are around the middle.
+- <span id="source_code">As</span> good practice, it is recommended to **log-out** of your account to do this. Opening a new icognito window will accomplish the same.
+
+Access the page of the dragon, right click and hit "view page source". A new window should appear. Make sure to copy the entire text found in that window, as most of the necessary bits are around the middle.
 
 ![image-title-here](/assets/img/DragonViewPageSource.png){:class="img-responsive"}
 
 ## How to use a custom template
 <span id="custom_template">Coming</span> soon
+
+
+<div style="text-align:center;">
+<img src="https://cutekawaiiresources.files.wordpress.com/2014/08/small_divider.png">
+</div>
+
+<span style="font-size:12px;"> This tool does not collect any data from the text provided to create the cards. Generator source code can be found <a href="https://github.com/Dragonmim/Dragonmim.github.io/blob/master/_includes/dragonCardGenerator.html">here</a>.</span>
