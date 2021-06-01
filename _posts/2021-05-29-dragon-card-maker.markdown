@@ -12,7 +12,7 @@ categories: FR
 {% include dragonCardGenerator.html %}
 
 ## How to get a Dragon's source code
-- <span id="source_code">As</span> good practice, it is recommended to be <dfn info="When logged in, the page will contain some of your information (username, bestiary status, currency etc.). That is not enough to comprimise your account and I am not setup to collect that, but, as good practice, be carefull with your information!">loged-out</dfn> of your account to do this. Opening a new icognito window will accomplish the same.<br>
+- <span id="source_code">As</span> good practice, it is recommended to be <dfn info="When logged in, the page will contain some of your information (username, bestiary status, currency etc.). That is not enough to comprimise your account and I am not setup to collect that, but, as good practice, be carefull with your information!">logged-out</dfn> of your account to do this. Opening a new icognito window will accomplish the same.<br>
 
 ![icognito](/assets/img/icognito.png){:class="img-responsive"}
 
