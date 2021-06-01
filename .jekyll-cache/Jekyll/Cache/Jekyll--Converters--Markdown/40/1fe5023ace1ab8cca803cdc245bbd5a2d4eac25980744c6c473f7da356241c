@@ -1,0 +1,214 @@
+I"J-<h2 id="1-choose-a-template">1. Choose a template</h2>
+<p>(Skip if you want to <a href="#custom_template">use your own</a>.)</p>
+<head>
+    <style>
+        #Template1 { border: 1px solid #525252; background-color: #ececec; width: 95%; padding: 4px; margin: 2px; }
+        #TbTemplates {border: none; padding: 0px; margin: auto;}
+      </style>
+</head>
+
+<table id="TbTemplates">
+    <tr>
+    <td style="max-width:300px">
+    <img src="/assets/img/Template2.png" width="100%" />
+    </td>
+    <td>
+        <textarea rows="6" id="Template1" placeholder="Source" readonly="">
+[columns]
+[url=https://www1.flightrising.com/dragon/{derg_id}][img]https://www1.flightrising.com/rendern/350/{derg_id_fact}/{derg_id}_350.png[/img][/url]
+
+[nextcol]
+[size=5][b]{name}[/b][/size]
+
+[columns]
+[img]https://www1.flightrising.com/static/layout/lair/icons/{gender}.png[/img]
+[nextcol][size=2]Breed[/size]
+[b]{breed}[/b]
+[/columns]
+
+[b]Eye Type[/b]
+[columns]
+[img]https://www1.flightrising.com/static/icons/{flight_low}_rune.png[/img]
+[nextcol][size=2]{flight}
+[b]{eye_type}[/b][/size]
+[/columns]
+
+[b]Genetics[/b]
+[columns]
+[img]https://www1.flightrising.com/static/icons/primary-gene.png[/img]
+[nextcol][size=2][color = {primary_color_code}][b]@[/b][/color]{primary_color} 
+[b]{primary_gene}[/b][/size] [/columns][columns]
+[img]https://www1.flightrising.com/static/icons/secondary-gene.png[/img]
+[nextcol][size=2][color = {secondary_color_code}][b]@[/b][/color]{secondary_color} 
+[b]{secondary_gene}[/b][/size] [/columns][columns]
+[img]https://www1.flightrising.com/static/icons/tertiary-gene.png[/img]
+[nextcol][size=2][color = {tertiary_color_code}][b]@[/b][/color]{tertiary_color}
+[b]{tertiary_gene}[/b][/size]
+[/columns]
+
+
+[center]
+[img]https://www1.flightrising.com/static/cms/icons/30.png[/img] {price}
+[url=http://www1.flightrising.com/auction-house/buy-dragon/{derg_id}][img]https://flightrising.com/images/layout/button_buyauction.png[/img][/url]
+[/center]
+[/columns]
+        </textarea>
+        <div align="right">
+            <button type="button" id="Use1">Use This</button>
+        </div>
+    </td>
+    </tr>
+</table>
+
+<script>
+    var btn = document.getElementById("Use1");
+    btn.addEventListener("click", Apply);
+    function Apply(){
+        document.getElementById('Template').value = document.getElementById('Template1').value;
+    }
+</script>
+
+<h2 id="2-generate">2. Generate!</h2>
+<head>
+    <style>
+        #Dragon, #Template, #Output, #Price { border: 1px solid #525252; background-color: #ececec; width: 95%; padding: 4px; margin: 2px; }
+        #Tb {border: none; padding: 0px; margin: auto;}
+      </style>
+</head>
+
+<table id="Tb">
+<tr>
+<td id="Tb">
+    <b>Input:</b><br />
+    <a href="#source_code">How to get your source code.</a>
+    <textarea rows="6" id="Dragon" placeholder="Source"></textarea><br />
+    <input type="number" placeholder="Price" id="Price" />
+</td>
+<td id="Tb" width="70%">
+    <b>Template:</b><br />
+    <textarea rows="7" id="Template" placeholder="Template"></textarea>
+</td>
+</tr>
+</table>
+
+<div align="right">
+<button type="button" id="Generate">Generate</button>
+</div>
+<p><br />
+<b>Result:</b></p>
+<textarea rows="7" id="Output" placeholder="Output"></textarea>
+
+<script>
+const color_values = {'Maize': '#FFFDEA', 'Cream': '#FFEFDC', 'Antique': '#D8D6CD', 'White': '#FFFFFF', 'Moon': '#D8D7D8',
+                'Ice': '#F1F3FF', 'Orca': '#E0DFFF', 'Platinum': '#C8BECE', 'Silver': '#BBBABF', 'Dust': '#9C9C9E',
+                'Grey': '#808080', 'Smoke': '#9494A9', 'Gloom': '#535264', 'Lead': '#413C3F', 'Shale': '#4D4850',
+                'Flint': '#626268', 'Charcoal': '#545454', 'Coal': '#4B4946', 'Oilslick': '#342B25', 'Black': '#333333',
+                'Obsidian': '#1D2224', 'Eldritch': '#252A25', 'Midnight': '#292B38', 'Shadow': '#392D43',
+                'Blackberry': '#4B294F', 'Mulberry': '#6e235d', 'Plum': '#853390', 'Wisteria': '#724E7B',
+                'Thistle': '#8F7C8B', 'Fog': '#A593B0', 'Mist': '#E1CEFF', 'Lavender': '#CCA4E0', 'Heather': '#9777BD',
+                'Purple': '#A261CF', 'Orchid': '#D950FF', 'Amethyst': '#993BD0', 'Nightshade': '#782EB2',
+                'Violet': '#643F9C', 'Grape': '#570FC0', 'Royal': '#4D2C89', 'Eggplant': '#332B65', 'Iris': '#535195',
+                'Storm': '#757ADB', 'Twilight': '#474AA0', 'Indigo': '#2D237A', 'Sapphire': '#0D095B', 'Navy': '#212B5F',
+                'Cobalt': '#003484', 'Ultramarine': '#1C51E7', 'Blue': '#324BA9', 'Periwinkle': '#4866D5',
+                'Lapis': '#2B84FF', 'Splash': '#6394DD', 'Cornflower': '#75A8FF', 'Sky': '#AEC8FF',
+                'Stonewash': '#7895C1', 'Overcast': '#444F69', 'Steel': '#556979', 'Denim': '#2F4557',
+                'Abyss': '#0D1E24', 'Phthalo': '#0B2D46', 'Azure': '#0A3D67', 'Caribbean': '#0086CE', 'Teal': '#2B768F',
+                'Cerulean': '#00B4D6', 'Cyan': '#00FFF0', 'Robin': '#9AEAEF', 'Aqua': '#72C4C4', 'Turquoise': '#3AA0A1',
+                'Spruce': '#8BBBB2', 'Pistachio': '#E2FFE6', 'Seafoam': '#B2E2BD', 'Mint': '#9AFFC7', 'Jade': '#61AB89',
+                'Spearmint': '#148E67', 'Thicket': '#005E48', 'Peacock': '#1F4739', 'Emerald': '#20603F',
+                'Shamrock': '#236925', 'Jungle': '#1E361A', 'Hunter': '#1D2715', 'Forest': '#425035', 'Camo': '#51684C',
+                'Algae': '#97AF8B', 'Swamp': '#687F67', 'Avocado': '#567C34', 'Green': '#629C3F', 'Fern': '#7ECE73',
+                'Mantis': '#99FF9C', 'Pear': '#8ECD55', 'Leaf': '#A5E32D', 'Radioactive': '#C6FF00',
+                'Honeydew': '#D0E672', 'Peridot': '#E8FFB5', 'Chartreuse': '#B4CD3C', 'Spring': '#A9A032',
+                'Crocodile': '#828335', 'Olive': '#697135', 'Murk': '#4B4420', 'Moss': '#7E7745', 'Goldenrod': '#BEA55D',
+                'Amber': '#C18E1B', 'Honey': '#D1B300', 'Lemon': '#FFE63B', 'Yellow': '#F9E255', 'Grapefruit': '#F7FF6F',
+                'Banana': '#FFEC80', 'Sanddollar': '#EBE7AE', 'Flaxen': '#FDE9AE', 'Ivory': '#FFD297',
+                'Buttercup': '#F6BF6B', 'Gold': '#E8AF49', 'Metals': '#D1B046', 'Marigold': '#FFB43B',
+                'Sunshine': '#FA912B', 'Saffron': '#FF8400', 'Sunset': '#FFA248', 'Peach': '#FFB576',
+                'Cantaloupe': '#FF984F', 'Orange': '#D5602B', 'Bronze': '#B2560D', 'Terracotta': '#B23B07',
+                'Carrot': '#FF5500', 'Fire': '#EF5C23', 'Pumpkin': '#FF6840', 'Tangerine': '#FF7360',
+                'Cinnamon': '#C05A39', 'Caramel': '#C67047', 'Sand': '#B27749', 'Tan': '#C49A70', 'Beige': '#CABBA2',
+                'Stone': '#827A64', 'Taupe': '#6D665A', 'Slate': '#564D48', 'Driftwood': '#766359', 'Latte': '#977B6C',
+                'Dirt': '#76483F', 'Clay': '#603F3D', 'Sable': '#57372C', 'Umber': '#2F1E1A', 'Soil': '#5A4534',
+                'Hickory': '#725639', 'Tarnish': '#855C32', 'Ginger': '#90532B', 'Brown': '#8E5B3F',
+                'Chocolate': '#563012', 'Auburn': '#7B3C1D', 'Copper': '#A44B28', 'Rust': '#8B3220',
+                'Tomato': '#BA311C', 'Vermilion': '#E22D17', 'Ruby': '#CD000E', 'Cherry': '#AA0024',
+                'Crimson': '#850012', 'Garnet': '#5B0F14', 'Sanguine': '#2E0002', 'Blood': '#451717',
+                'Maroon': '#652127', 'Berry': '#8B272C', 'Red': '#C1272D', 'Strawberry': '#DE3235',
+                'Cerise': '#A22929', 'Carmine': '#B13A3A', 'Brick': '#9A534D', 'Coral': '#CC6F6F',
+                'Blush': '#FFA2A2', 'Cottoncandy': '#EB7997', 'Watermelon': '#DB518D', 'Magenta': '#E934AA',
+                'Fuchsia': '#EC0089', 'Raspberry': '#8A0249', 'Wine': '#4D0F28', 'Mauve': '#9C4875',
+                'Pink': '#E77FBF', 'Bubblegum': '#EAA9FF', 'Rose': '#FFD6F6', 'Pearl': '#FBE9F8'}
+
+var btn = document.getElementById("Generate");
+btn.addEventListener("click", Generate);
+
+function Generate(){
+    let dragon_source_code = document.getElementById("Dragon").value;
+    dragon_source_code = dragon_source_code.replaceAll(/^\s+/gm, "");
+    dragon_source_code = dragon_source_code.replaceAll(/\n/gm, "");
+
+    let id_regex = /<span class="dragon-profile-header-number">\(#(?<id>\w+)\)<\/span>/gmi;
+    let name_regex = /<span class="dragon-profile-header-name">(?<name>\w+)<\/span>/gmi;
+    let stats_regex = /<div class="dragon-profile-stat-icon-value">(?<one>\w+)<br \/><strong>(?<two>\w+)<\/strong><\/div>/gmi;
+    let gender_regex = /<img src="\/static\/layout\/lair\/icons\/(?<gender>\w+)ale.png"/gmi;
+
+    let id = Array.from(dragon_source_code.matchAll(id_regex))[0].groups["id"];    
+    let name = Array.from(dragon_source_code.matchAll(name_regex))[0].groups["name"];
+    let gender = Array.from(dragon_source_code.matchAll(gender_regex))[0].groups["gender"];
+    let status = Array.from(dragon_source_code.matchAll(stats_regex));
+    let price = document.getElementById("Price").value;
+
+    let primary_color = status[0].groups["one"]
+    let primary_gene = status[0].groups["two"]
+
+    let secondary_color = status[1].groups["one"]
+    let secondary_gene = status[1].groups["two"]
+
+    let tertiary_color = status[2].groups["one"]
+    let tertiary_gene = status[2].groups["two"]
+
+    let breed = status[3].groups["two"]
+
+    let flight = status[4].groups["one"]
+    let eye_type = status[4].groups["two"]
+
+    let keywords = {
+        "{derg_id}":id, "{name}":name, "{gender}":gender+"ale", "{breed}":breed, "{eye_type}":eye_type, 
+        "{flight}":flight, "{flight_low}": flight.toLowerCase(), "{derg_id_fact}": Math.floor(id/100) + 1,
+        "{primary_gene}":primary_gene, "{primary_color}":primary_color, "{primary_color_code}":color_values[primary_color],
+        "{secondary_gene}":secondary_gene, "{secondary_color}":secondary_color, "{secondary_color_code}":color_values[secondary_color],
+        "{tertiary_gene}":tertiary_gene, "{tertiary_color}":tertiary_color, "{tertiary_color_code}":color_values[tertiary_color],
+        "{price}":price
+    }
+
+    let template = document.getElementById("Template").value;
+
+    for (const [key, value] of Object.entries(keywords)) {
+        template = template.replaceAll(key, value)
+    }
+
+    document.getElementById('Output').value = template;
+}
+</script>
+
+<h2 id="how-to-get-a-dragons-source-code">How to get a Dragons source code</h2>
+<ul>
+  <li><span id="source_code">As</span> good practice, it is recommended to <dfn info="When logged in, these pages will contain some of your information (username, bestiary status, currency etc.). That is not enough to comprimise your account and this page is not setup to collect that, but others may - be carefull with the information you share!">log-out</dfn> of your account to do this. Opening a new icognito window will accomplish the same.&lt;/br&gt;</li>
+</ul>
+
+<p><img src="/assets/img/icognito.png" alt="image-title-here" class="img-responsive" style="margin:auto;" /></p>
+
+<p>Access the page of the dragon, right click and hit “view page source”. A new window should appear. Make sure to copy the entire text found in that window, as most of the necessary bits are around the middle.</p>
+
+<p><img src="/assets/img/DragonViewPageSource.png" alt="image-title-here" class="img-responsive" style="margin:auto;" /></p>
+
+<h2 id="how-to-use-a-custom-template">How to use a custom template</h2>
+<p><span id="custom_template">Coming</span> soon</p>
+
+<div style="text-align:center;">
+<img src="https://cutekawaiiresources.files.wordpress.com/2014/08/small_divider.png" />
+</div>
+
+<p><span style="font-size:12px;"> This tool does not collect any data from the text provided to create the cards. Generator source code can be found <a href="https://github.com/Dragonmim/Dragonmim.github.io/blob/master/_includes/dragonCardGenerator.html">here</a>.</span></p>
+:ET
