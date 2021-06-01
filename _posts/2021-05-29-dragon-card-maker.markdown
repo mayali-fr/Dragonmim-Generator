@@ -11,12 +11,18 @@ categories: FR
 ## 2. Generate!
 {% include dragonCardGenerator.html %}
 
-## How to get a Dragons source code
-- <span id="source_code">As</span> good practice, it is recommended to **log-out** of your account to do this. Opening a new icognito window will accomplish the same.
+## How to get a Dragon's source code
+- <span id="source_code">As</span> good practice, it is recommended to be <dfn info="When logged in, the page will contain some of your information (username, bestiary status, currency etc.). That is not enough to comprimise your account and I am not setup to collect that, but, as good practice, be carefull with your information!">loged-out</dfn> of your account to do this. Opening a new icognito window will accomplish the same.<br>
 
-Access the page of the dragon, right click and hit "view page source". A new window should appear. Make sure to copy the entire text found in that window, as most of the necessary bits are around the middle.
+![icognito](/assets/img/icognito.png){:class="img-responsive"}
 
-![image-title-here](/assets/img/DragonViewPageSource.png){:class="img-responsive"}
+Access the page of the dragon, right click and hit "view page source".
+
+![page source](/assets/img/DragonViewPageSource.png){:class="img-responsive"}
+
+A new window should appear. The bit needed should be between line **180** and line **810**, as shown below. If you are having trouble, **take the whole thing**.
+
+![page source](/assets/img/code.png){:class="img-responsive" }
 
 ## How to use a custom template
 <span id="custom_template">Coming</span> soon
