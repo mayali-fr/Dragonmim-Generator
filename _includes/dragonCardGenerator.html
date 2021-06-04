@@ -9,8 +9,8 @@
 <tr>
 <td id=Tb>
     <b>Input:</b><br>
-    <a href="#source_code">How to get your source code.</a> (Make sure you are loged out!)
-    <textarea rows="4" id="Dragon" placeholder="Source"></textarea><br>
+    <a href="#source_code">How to get your input.</a>
+    <textarea rows="4" id="Dragon" placeholder="Input"></textarea><br>
     <input type="number" placeholder="Price" id="Price">
 </td>
 <td id="Tb" width="70%">
@@ -71,16 +71,33 @@ const color_values = {'Maize': '#FFFDEA', 'Cream': '#FFEFDC', 'Antique': '#D8D6C
 
 var btn = document.getElementById("Generate");
 btn.addEventListener("click", Generate);
+document.getElementById("Dragon").onpaste = function(evn) {return pasteHTML(evn)}
+
+function pasteHTML(event){
+        // use event.originalEvent.clipboard for newer chrome versions
+        var clipboard = (event.clipboardData  || event.originalEvent.clipboardData);
+        clipboard_html = clipboard.getData("text/html")
+        if (clipboard_html.length < 500000){
+            document.getElementById("Dragon").value = clipboard_html
+            return false;
+        }
+        return true;
+}
 
 function Generate(){
+    if (document.getElementById("Template").value.length < 5){
+        window.alert("Template is empty!");
+        return
+    }
+
     let dragon_source_code = document.getElementById("Dragon").value;
     dragon_source_code = dragon_source_code.replaceAll(/^\s+/gm, "");
     dragon_source_code = dragon_source_code.replaceAll(/\n/gm, "");
 
-    let id_regex = /<span class="dragon-profile-header-number">\(#(?<id>\w+)\)<\/span>/gmi;
-    let name_regex = /<span class="dragon-profile-header-name">(?<name>\w+)<\/span>/gmi;
-    let stats_regex = /<div class="dragon-profile-stat-icon-value">(?<one>\w+)<br \/><strong>(?<two>\w+)<\/strong><\/div>/gmi;
-    let gender_regex = /<img src="\/static\/layout\/lair\/icons\/(?<gender>\w+)ale.png"/gmi;
+    let id_regex = /<span[^<>]*class="dragon-profile-header-number"[^<>]*>\(#(?<id>\w+)\)<\/span>/gmi;
+    let name_regex = /<span[^<>]*class="dragon-profile-header-name"[^<>]*>(?<name>\w+)<\/span>/gmi;
+    let stats_regex = /<div[^<>]*class="dragon-profile-stat-icon-value"[^<>]*>(?<one>\w+)<br[^<>]*><strong[^<>]*>(?<two>\w+)<\/strong><\/div>/gmi;
+    let gender_regex = /\/static\/layout\/lair\/icons\/(?<gender>\w+)ale\.png/gmi;
 
     let id = Array.from(dragon_source_code.matchAll(id_regex))[0].groups["id"];    
     let name = Array.from(dragon_source_code.matchAll(name_regex))[0].groups["name"];

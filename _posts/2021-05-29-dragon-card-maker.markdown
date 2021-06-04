@@ -12,21 +12,39 @@ categories: FR
 {% include dragonCardGenerator.html %}
 
 ## How to get a Dragon's source code
-- <span id="source_code">As</span> good practice, it is recommended to be <dfn info="When logged in, the page will contain some of your information (username, bestiary status, currency etc.). That is not enough to comprimise your account and I am not setup to collect that, but, as good practice, be carefull with your information!">loged-out</dfn> of your account to do this. Opening a new icognito window will accomplish the same.<br>
+- <span id="source_code">Copy</span> the area in your dragon page starting at it's name and ending at the eye type:
 
-![icognito](/assets/img/icognito.png){:class="img-responsive"}
-
-Access the page of the dragon, right click and hit "view page source".
-
-![page source](/assets/img/DragonViewPageSource.png){:class="img-responsive"}
-
-A new window should appear. The bit needed should be between line **180** and line **810**, as shown below. If you are having trouble, **take the whole thing**.
-
-![page source](/assets/img/code.png){:class="img-responsive" }
+![page source](/assets/img/SelectDragon.gif){:class="img-responsive" }
 
 ## How to use a custom template
-<span id="custom_template">Coming</span> soon
+<span id="custom_template">Write</span> your bbcode as you normally would, but use these identifyers for the fields where you want to display dragon data. Keep in mins that some fields are intended to be used to make image urls, others to display as text, though you may use them as you like. 
 
+<table class=post_table>
+<tr class=title><td>Field</td> <td>Description</td> <td>Example <br><spam style="font-size:8pt;font-weight:normal">(from dragon above)</spam></td></tr>
+<tr><td>{derg_id}</td> <td>Id</td> <td>68850406</td></tr>
+<tr><td>{derg_id_fact}</td> <td>Id / 100 (mostly for image urls)</td> <td>688505</td></tr>
+<tr><td>{name}</td> <td>Name</td> <td>Amaria</td></tr>
+<tr><td>{gender}</td> <td>Gender (lowercase)</td> <td>female</td></tr>
+<tr><td>{breed}</td> <td>Breed</td> <td>Skydance</td></tr>
+<tr><td>{eye_type}</td> <td>Eye type</td> <td>Common</td></tr>
+<tr><td>{flight}</td> <td>Flight</td> <td>Plague</td></tr>
+<tr><td>{flight_low}</td> <td>Flight lowecase (mostly for image urls)</td> <td>plague</td></tr>
+<tr><td>{price}</td> <td>Number input in "price" window.</td> <td>10.000</td></tr>
+<tr class=separator><td> Genetics </td> <td> </td> <td>  </td></tr>
+<tr><td>{primary_gene}</td> <td>Primary Gene</td> <td>Petals</td></tr>
+<tr><td>{primary_color}</td> <td>Primary Color (name)</td> <td>Aqua</td></tr>
+<tr><td>{primary_color_code}</td> <td>Primary Color (code)</td> <td>#72C4C4</td></tr>
+<tr><td>{secondary_gene}</td> <td>Secondary Gene</td> <td>Buterfly</td></tr>
+<tr><td>{secondary_color}</td> <td>Secondary Color (name)</td> <td>Aqua</td></tr>
+<tr><td>{secondary_color_code}</td> <td>Secondary Color (code)</td> <td>#72C4C4</td></tr>
+<tr><td>{tertiary_gene}</td> <td>Tertiary Gene</td> <td>Glimmer</td></tr>
+<tr><td>{tertiary_color}</td> <td>Tertiary Color (name)</td> <td>Mint</td></tr>
+<tr><td>{tertiary_color_code}</td> <td>Tertiary Color (code)</td> <td>#9AFFC7</td></tr>
+</table>
+
+You can use as many or as few as you wish. When your are done, paste your code in the "template" field. 
+
+<br>
 
 <div style="text-align:center;">
 <img src="https://cutekawaiiresources.files.wordpress.com/2014/08/small_divider.png">
