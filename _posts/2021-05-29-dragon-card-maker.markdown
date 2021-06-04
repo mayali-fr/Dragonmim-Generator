@@ -11,7 +11,7 @@ categories: FR
 ## 2. Generate!
 {% include dragonCardGenerator.html %}
 
-## How to get a Dragon's source code
+## How to get a Dragon's input
 - <span id="source_code">Copy</span> the area in your dragon page starting at it's name and ending at the eye type:
 
 ![page source](/assets/img/SelectDragon.gif){:class="img-responsive" }
