@@ -17,7 +17,7 @@ categories: FR
 ![page source](/assets/img/SelectDragon.gif){:class="img-responsive" }
 
 ## How to use a custom template
-<span id="custom_template">Write</span> your bbcode as you normally would, but use these identifyers for the fields where you want to display dragon data. Keep in mins that some fields are intended to be used to make image urls, others to display as text, though you may use them as you like. 
+<span id="custom_template">Write</span> your bbcode as you normally would, but use these identifyers for the fields where you want to display dragon data. Keep in mind that some fields are intended to be used to make image urls, others to display as text, though you may use them as you like. 
 
 <table class=post_table>
 <tr class=title><td>Field</td> <td>Description</td> <td>Example <br><spam style="font-size:8pt;font-weight:normal">(from dragon above)</spam></td></tr>
@@ -49,5 +49,7 @@ You can use as many or as few as you wish. When your are done, paste your code i
 <div style="text-align:center;">
 <img src="https://cutekawaiiresources.files.wordpress.com/2014/08/small_divider.png">
 </div>
+
+<br>
 
 <span style="font-size:12px;"> This tool does not collect any data from the text provided to create the cards. Generator source code can be found <a href="https://github.com/Dragonmim/Dragonmim.github.io/blob/master/_includes/dragonCardGenerator.html">here</a>.</span>

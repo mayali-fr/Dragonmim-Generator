@@ -16,9 +16,9 @@ google_analytics: #UA—XXXXXXXX-X
 disqus_shortname: #disqus shortname
 
 user:
-  name: Aterbrain
+  name: Aterbrain's
   pic: /assets/img/feathers.png
-  picAlt: "catbook"
+  picAlt: ""
   job: Flight Risnig related tools
   aboutme: #true # comment this out if you don't need the 'about' page.
 

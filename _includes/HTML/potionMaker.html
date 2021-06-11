@@ -1,0 +1,134 @@
+<header>
+    <style>
+        .block{
+            margin: auto;
+            padding: 15px;
+            margin: 10px 30px;
+            text-align:center;
+            border-radius: 10px;
+            background: #e5e5e5;
+        }
+    </style>
+</header>
+<script src="assets/JS/jscolor.js"></script>
+
+<b>Potion Stall</b><br>
+<a href="#" onclick="drawPotion('assets/img/Pixels/LovePotionBW.png')"><img src="assets/img/Pixels/LovePotionBW.png"></a>
+
+<div class="block">Use these as you like!<br>
+Please <b>link back</b> to this page or the companion post in the picture itself or somewhere in the page.
+</div>
+<br><br>
+
+<b>Mixing Table</b>
+<table style="margin:auto;">
+    <tr>
+    <td>
+<table class=post_table>
+    <tr><td>
+        <b>Result</b>
+    </td><td>
+        <b>Palette</b>
+    </td></tr>
+    <tr><td>
+        <canvas id="potion" width="56" height="70"></canvas>
+    </td>
+    <td>
+        <input value="#e5e5e5" data-jscolor="{}" onInput="colorFilter(this.jscolor, 0)" class="col_input"><br>
+        <input value="#c1c1c1" data-jscolor="{}" onInput="colorFilter(this.jscolor, 1)" class="col_input"><br>
+        <input value="#a3a3a3" data-jscolor="{}" onInput="colorFilter(this.jscolor, 2)" class="col_input"><br>
+        <input value="#727272" data-jscolor="{}" onInput="colorFilter(this.jscolor, 3)" class="col_input"><br>
+        <input value="#353535" data-jscolor="{}" onInput="colorFilter(this.jscolor, 4)" class="col_input"><br>
+    </td></tr>
+    <tr><td><b>Brewer</b></td><td>#<input id="sign" value="0000000" oninput="drawText()"></td></tr>
+</table> 
+</td>
+<td>
+    <div class="block" style="max-width: 250px;">To use yor brew, save the picture and upload it to an image service.<br>
+    <a href="https://imgbb.com/">imgBB</a> - <a href="https://imgur.com/upload">imgur</a></div>
+</td></tr>
+</table>
+
+<script>
+    var img1 = new Image();
+    var imgtext = new Image();
+    let colors = ["#e5e5e5", "#c1c1c1", "#a3a3a3", "#727272", "#353535"]
+
+
+    function drawPotion(asset) {
+        var ctx = document.getElementById('potion');
+        if (ctx.getContext) {
+            ctx = ctx.getContext('2d');
+
+            //drawing of the test image - img1
+            img1.onload = function () {
+                ctx.drawImage(img1, 0, 0);
+                drawText(ctx)
+                colors = ["#e5e5e5", "#c1c1c1", "#a3a3a3", "#727272", "#353535"];
+                jscolor.trigger('input');
+            };
+            img1.src = asset;
+        }
+    }
+
+    function drawText(){
+        var ctx = document.getElementById('potion');
+        ctx = ctx.getContext('2d');
+        ctx.clearRect(0, 60, 60, 10);
+
+        var text = document.getElementById("sign").value;
+        
+        total_size = text.length*5 + 6
+        offset = Math.floor((56 - total_size)/2)
+
+        imgtext.onload = function () {
+            ctx.drawImage(imgtext, 10*5, 0, 7, 7, 0 + offset, 60, 7, 7);
+            for(i=0; i<text.length; i++){
+                num = parseInt(text[i])
+                ctx.drawImage(imgtext, num*5, 0, 5, 7, i*5 + offset + 7, 60, 5, 7);
+            };
+        };
+        imgtext.src = 'assets/font/Numbers.png';
+    }
+
+
+    function colorFilter(col, col_to_replace) {
+        var ctx = document.getElementById('potion');
+        ctx = ctx.getContext('2d');
+        var data = ctx.getImageData(0,0,60,60);
+        var rep_col = convertToRGB(colors[col_to_replace])
+        var new_col = convertToRGB(col.toHEXString())
+
+        for (var i=0;i<data.data.length;i+=4)
+            {
+                // is this pixel the old rgb?
+                if(data.data[i]==rep_col[0] &&
+                   data.data[i+1]==rep_col[1] &&
+                   data.data[i+2]==rep_col[2])
+                {
+                    data.data[i]=new_col[0];
+                    data.data[i+1]=new_col[1];
+                    data.data[i+2]=new_col[2];
+                }
+            }
+
+        ctx.putImageData(data, 0, 0);
+        colors[col_to_replace] = col.toHEXString();
+    }
+
+    function rgbToHex(r, g, b) {
+        return "#" + componentToHex(r) + componentToHex(g) + componentToHex(b);
+    }
+
+    function convertToRGB(str){
+        var aRgbHex = str.substring(1).match(/.{1,2}/g);
+        var aRgb = [
+            parseInt(aRgbHex[0], 16),
+            parseInt(aRgbHex[1], 16),
+            parseInt(aRgbHex[2], 16)
+        ];
+        return aRgb;
+}
+
+
+</script>
