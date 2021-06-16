@@ -8,6 +8,14 @@
             border-radius: 10px;
             background: #e5e5e5;
         }
+
+        img{
+            display: inline;
+        }
+
+        .potions{
+            text-align: center;
+        }
     </style>
 </header>
 <script src="assets/JS/jscolor.js"></script>
@@ -22,8 +30,12 @@
 
 <b><span id="recipes">Recipes</span></b><br>
 Click on a item to start brewing. If the colors in your brew blending together, click again to reset the recipe (the colors you have chosen will not be lost!)<br>
-<a href="#recipes" onclick="drawPotion('assets/img/Pixels/LovePotionBW.png')"><img src="assets/img/Pixels/LovePotionBW.png"></a>
-<br><br>
+<div class="potions">
+    <a href="#recipes" onclick="drawPotion('assets/img/Pixels/LovePotionBW.png')" style="display: inline;"><img src="assets/img/Pixels/LovePotionBW.png"></a>
+    <a href="#recipes" onclick="drawPotion('assets/img/Pixels/StormBottle.png')" style="display: inline;"><img src="assets/img/Pixels/StormBottle.png"></a>
+    <a href="#recipes" onclick="drawPotion('assets/img/Pixels/Galaxy.png')" style="display: inline;"><img src="assets/img/Pixels/Galaxy.png"></a>
+    
+</div>
 
 <b>Mixing Table</b>
 <table style="margin:auto;">
@@ -54,6 +66,23 @@ Click on a item to start brewing. If the colors in your brew blending together, 
 </td></tr>
 </table>
 
+<b>Link Back</b><br><br>
+<table style="margin: auto; font-size: 10px; padding:0px; line-height: 10px; text-align: center;">
+    <tr>
+        <td style="padding-right: 20px;">
+            <img src="https://i.ibb.co/Bqppjd5/Alchemy-Stall-Button.png">
+        </td>
+        <td>
+            <b>HTML</b><br>
+            <textarea><a href="https://dragonmim.github.io/pixel-potions"><img src="https://i.ibb.co/Bqppjd5/Alchemy-Stall-Button.png"></a></textarea><br>
+        </td>
+        <td>
+            <b>BBCode</b><br>
+            <textarea>[url="https://dragonmim.github.io/pixel-potions"][img]https://i.ibb.co/Bqppjd5/Alchemy-Stall-Button.png[/img][/url]</textarea>
+        </td>
+    </tr>
+</table>
+
 <script>
     var img1 = new Image();
     var imgtext = new Image();
@@ -80,9 +109,10 @@ Click on a item to start brewing. If the colors in your brew blending together, 
         var ctx = document.getElementById('potion');
         ctx = ctx.getContext('2d');
         ctx.clearRect(0, 60, 60, 10);
-
-        var text = document.getElementById("sign").value;
         
+        var text = document.getElementById("sign").value;
+        if (text.length < 1) return;
+
         total_size = text.length*5 + 6
         offset = Math.floor((56 - total_size)/2)
 
