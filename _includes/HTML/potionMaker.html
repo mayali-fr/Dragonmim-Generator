@@ -93,6 +93,7 @@ Click on a item to start brewing. If the colors in your brew blending together, 
         var ctx = document.getElementById('potion');
         if (ctx.getContext) {
             ctx = ctx.getContext('2d');
+            ctx.clearRect(0, 0, 60, 60);
 
             //drawing of the test image - img1
             img1.onload = function () {
