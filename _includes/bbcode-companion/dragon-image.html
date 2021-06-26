@@ -1,0 +1,78 @@
+
+<p style="text-align:right;margin: 0 auto;">
+    Dragon ID: <input type="number" value="68850406" id="DragonID"> <button id="Go" onclick="change_dragon()">Go</button><br>
+    Link to dragon <input type="checkbox" id="AddLink">
+</p>
+    
+<table style="text-align: center; vertical-align: bottom; margin: 0 auto;">
+    <tr style="vertical-align: bottom;">
+        <td>
+            <img src="http://flightrising.com/rendern/350/688505/68850406_350.png" id="350">
+            <textarea id="text-350">[img]http://flightrising.com/rendern/350/690971/69097091_350.png[/img]</textarea>
+        </td>
+        <td>
+            <table style="text-align: center;">
+                <tr style="vertical-align: bottom;">
+                    <td>
+                        <img src="http://www1.flightrising.com/rendern/avatars/688505/68850406.png" id="avatar"> <br>
+                        <textarea id="text-avatar">[img]http://www1.flightrising.com/rendern/avatars/688505/68850406.png[/img]</textarea>
+                    </td>   
+                    <td>
+                        <img src="http://flightrising.com/rendern/coliseum/battlesprites/688505/68850406.png" id="coli-sprite">
+                        
+                        <textarea id="text-coli-sprite">[img]http://flightrising.com/rendern/coliseum/battlesprites/688505/68850406.png[/img]</textarea>
+                    </td>
+                </tr>
+            
+                <tr style="vertical-align: bottom;">
+                    <td>
+                        <img src="http://www1.flightrising.com/rendern/portraits/688505/68850406p.png" id="portrait">
+                        <textarea id="text-portrait">[img]http://www1.flightrising.com/rendern/portraits/688505/68850406p.png[/img]</textarea>
+                    </td>   
+                    <td>
+                        <img src="http://flightrising.com/rendern/coliseum/portraits/688505/68850406.png" id="coli-portrait">
+                        <textarea id="text-coli-portrait">[img]http://flightrising.com/rendern/coliseum/portraits/688505/68850406.png[/img]</textarea>
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+</table>
+
+<script>
+    change_dragon()
+
+    function change_dragon(){
+        let link = document.getElementById("AddLink").checked
+        console.log("Hey")
+        console.log(link)
+        let derg_id = document.getElementById("DragonID").value
+        let derg_id_fact= Math.floor(derg_id/100) + 1
+
+        let image_url = `http://www1.flightrising.com/rendern/350/${derg_id_fact}/${derg_id}_350.png`
+        document.getElementById("350").src = image_url
+        document.getElementById("text-350").value = get_text(link, derg_id, image_url)
+
+        image_url = `http://www1.flightrising.com/rendern/avatars/${derg_id_fact}/${derg_id}.png`
+        document.getElementById("avatar").src = image_url
+        document.getElementById("text-avatar").value = get_text(link, derg_id, image_url)
+
+        image_url = `http://www1.flightrising.com/rendern/coliseum/battlesprites/${derg_id_fact}/${derg_id}.png`
+        document.getElementById("coli-sprite").src = image_url
+        document.getElementById("text-coli-sprite").value = get_text(link, derg_id, image_url)
+        
+        image_url = `http://www1.flightrising.com/rendern/portraits/${derg_id_fact}/${derg_id}p.png`
+        document.getElementById("coli-portrait").src = image_url
+        document.getElementById("text-coli-portrait").value = get_text(link, derg_id, image_url)
+
+        image_url = `http://www1.flightrising.com/rendern/coliseum/portraits/${derg_id_fact}/${derg_id}.png`
+        document.getElementById("portrait").src = image_url
+        document.getElementById("text-portrait").value = get_text(link, derg_id, image_url)
+    }
+
+    function get_text(link, derg_id, img_url){
+        if(link) return `[url=https://www1.flightrising.com/dragon/${derg_id}][img]${img_url}[/img][/url]`
+        else return `[img]${img_url}[/img]`  
+    }
+
+</script>

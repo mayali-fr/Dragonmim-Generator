@@ -52,4 +52,5 @@ You can use as many or as few as you wish. When your are done, paste your code i
 
 <br>
 
-<span style="font-size:12px;"> This tool does not collect any data from the text provided to create the cards. Generator source code can be found <a href="https://github.com/Dragonmim/Dragonmim.github.io/blob/master/_includes/dragonCardGenerator.html">here</a>.</span>
+<p style="font-size:12px;text-align:center;"> This tool does not collect any data from the text provided to create the cards. Generator source code can be found <a href="https://github.com/Dragonmim/Dragonmim.github.io/blob/master/_includes/dragonCardGenerator.html">here</a>. <br> 
+<a href="https://www1.flightrising.com/">Flight Rising</a> and related content © Stormlight Workshop LLC</p>
