@@ -1,0 +1,70 @@
+<head>
+    <style>
+        #Result {border: 2px dotted rgb(199, 207, 207); border-radius: 10px; padding: 10px; text-align: center; margin: 10px;}
+        #Result img { display: inline; }
+        #Source, #Output { width: 95%; margin: auto; display: block;}
+      </style>
+</head>
+<h1>Pet Pat Widget</h1>
+Creates a widget displaying your pets portraits with their patting links!<br>
+Use it to make pages to allow you to quickly interact with all of your pets.<br><Br>
+
+<b>Place your input here:</b><br>
+<a href="#source_code">How to get your input.</a>
+<textarea rows="5" id="Source" placeholder="Input"></textarea>
+
+Preview:
+<p id=Result></p>
+
+<b>Here is your code (HTML):</b>
+<textarea rows="5" id="Output" placeholder="Generated Code"></textarea>
+<button type="button" id="Generate">Generate</button>
+<br><Br>
+<span id="source_code"><b>How to get your input.</b></span><br>
+Select the pets you wish to create a widget for, right click and hit "copy"
+<img src="assets/img/SelectPets.gif">
+
+<script>
+    var btn = document.getElementById("Generate");
+    btn.addEventListener("click", Generate);
+    document.getElementById("Source").onpaste = function(evn) {return pasteHTML(evn)}
+
+    function pasteHTML(event){
+        // use event.originalEvent.clipboard for newer chrome versions
+        var clipboard = (event.clipboardData  || event.originalEvent.clipboardData);
+        clipboard_html = clipboard.getData("text/html")
+        if (clipboard_html.length < 500000){
+            document.getElementById("Source").value = clipboard_html
+            return false;
+        }
+        return true;
+    }
+
+    function Generate(){
+
+        let source_code = document.getElementById("Source").value;
+
+        let id_regex = /https:\/\/dappervolk\.com\/pet\/(?<id>\d+)/gmi
+        let image_regex = /"https:\/\/dappervolk\.com\/img\/pets\/0\/(?<pet>[\d\w\-]+)\.png"/gmi
+
+        let id = Array.from(source_code.matchAll(id_regex))
+        let pet = Array.from(source_code.matchAll(image_regex))
+
+        let template = '<a href="https://dappervolk.com/pet/pat/{id}"><img src="https://dappervolk.com/img/pets/0/{pet}-thumb.png"></a>\n'
+
+        let result = "";
+
+        console.log(id.length)
+        console.log(pet)
+
+        for(var i = 0, size = id.length; i < size ; i++){
+            entry = template.replace("{id}", id[i].groups["id"]);
+            entry = entry.replace("{pet}", pet[i].groups["pet"]);
+            result += entry;
+        }
+
+        document.getElementById('Output').value = result;
+        document.getElementById('Result').innerHTML = result;
+    }
+
+</script>

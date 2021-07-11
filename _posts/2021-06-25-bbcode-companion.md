@@ -2,7 +2,7 @@
 layout: post
 title:  "BBCode Companion"
 date:   2021-06-25 20:10:06 +0200
-categories: FR
+categories: FlightRising
 ---
 
 ## Image Companion

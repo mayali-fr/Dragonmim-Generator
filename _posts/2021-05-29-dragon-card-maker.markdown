@@ -2,7 +2,7 @@
 layout: post
 title:  "Sales Card Generator"
 date:   2021-05-07 20:10:06 +0200
-categories: FR
+categories: FlightRising
 ---
 ## 1. Choose a template
 (Skip if you want to <a href="#custom_template">use your own</a>.)
