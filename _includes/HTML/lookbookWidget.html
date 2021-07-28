@@ -1,0 +1,62 @@
+<head>
+    <style>
+        #Result {border: 2px dotted rgb(199, 207, 207); border-radius: 10px; padding: 10px; text-align: center; margin: 10px;}
+        #Result img { display: inline; }
+        #Source, #Output { width: 95%; margin: auto; display: block;}
+      </style>
+</head>
+<h1>Lookbook Widget</h1>
+Automatically creates a list of wardrobe items to add to your lookbook.<br><br>
+
+<b>Place your input here:</b><br>
+<a href="#source_code">How to get your input.</a>
+<textarea rows="5" id="Source" placeholder="Input"></textarea>
+
+Preview:
+<p id=Result></p>
+
+<b>Here is your code (HTML):</b>
+<textarea rows="5" id="Output" placeholder="Generated Code"></textarea>
+<button type="button" id="Generate">Generate</button>
+<br><Br>
+<span id="source_code"><b>How to get your input.</b></span><br>
+Select the items in your wardrobe, from the <b>sort clothing order</b> session, right click and hit "copy".<br>
+<img src="assets/img/selectOutfit.gif">
+
+<script>
+    var btn = document.getElementById("Generate");
+    btn.addEventListener("click", Generate);
+    document.getElementById("Source").onpaste = function(evn) {return pasteHTML(evn)}
+
+    function pasteHTML(event){
+        // use event.originalEvent.clipboard for newer chrome versions
+        var clipboard = (event.clipboardData  || event.originalEvent.clipboardData);
+        clipboard_html = clipboard.getData("text/html")
+        if (clipboard_html.length < 500000){
+            document.getElementById("Source").value = clipboard_html
+            return false;
+        }
+        return true;
+    }
+
+    function Generate(){
+
+        let source_code = document.getElementById("Source").value;
+
+        let image_regex = /<img data-item-id="\d+" src="(?<clothing>https:\/\/dappervolk\.com\/[a-zA-Z\/0-9-\.]+)"/gmi
+        let image = Array.from(source_code.matchAll(image_regex))
+
+        let template = '<img src="{clothing}">\n'
+
+        let result = "";
+
+        for(var i = 0, size = image.length; i < size ; i++){
+            entry = template.replace("{clothing}", image[i].groups["clothing"]);
+            result += entry;
+        }
+
+        document.getElementById('Output').value = result;
+        document.getElementById('Result').innerHTML = result;
+    }
+
+</script>
