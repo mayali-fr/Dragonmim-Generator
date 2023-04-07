@@ -14,7 +14,7 @@ categories: FlightRising
 ## How to get a Dragon's input
 - <span id="source_code">Copy</span> the area in your dragon page starting at it's name and ending at the eye type:
 
-![page source](/assets/img/SelectDragon.gif){:class="img-responsive" }
+![page source](/Dragonmim-Generator/assets/img/SelectDragon.gif){:class="img-responsive" }
 
 ## How to use a custom template
 <span id="custom_template">Write</span> your bbcode as you normally would, but use these identifyers for the fields where you want to display dragon data. Keep in mind that some fields are intended to be used to make image urls, others to display as text, though you may use them as you like. 
