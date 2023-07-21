@@ -95,7 +95,7 @@ function Generate(){
     dragon_source_code = dragon_source_code.replaceAll(/\n/gm, "");
 
     let id_regex = /<span[^<>]*class="dragon-profile-header-number"[^<>]*>\(#(?<id>\w+)\)<\/span>/gmi;
-    let name_regex = /<span[^<>]*class="dragon-profile-header-name"[^<>]*>(?<name>\w+)<\/span>/gmi;
+    let name_regex = /<h1[^<>]*class="dragon-profile-header-name"[^<>]*>(?<name>\w+)<\/h1>/gmi;
     let stats_regex = /<div[^<>]*class="dragon-profile-stat-icon-value(?:\sdragon-profile-stat-icon-value-small)?(?:\scommon-tooltip)?"[^<>]*>(?<one>\w+)<br[^<>]*><strong[^<>]*>(?<two>\w+)(?:\s?\(\w+\))?<\/strong><\/div>/gmi;
     let gender_regex = /\/static\/layout\/lair\/icons\/(?<gender>\w+)ale\.png/gmi;
 
